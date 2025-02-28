@@ -35,3 +35,18 @@ jobs:
           accessed: true # Purge caches by their last accessed time (default)
           created: false # Purge caches by their created time (default)
           max-age: 1 # in seconds
+
+      - name: 🔹 Configurar Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.16.0'  # Ajusta la versión según tu proyecto
+          channel: stable
+
+      - name: 🔹 Verificar instalación de Flutter
+        run: flutter doctor -v
+
+      - name: 🔹 Limpiar caché de Flutter
+        run: flutter clean
+
+      - name: 🔹 Obtener dependencias de Flutter
+        run: flutter pub get
